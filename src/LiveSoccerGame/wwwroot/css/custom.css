@@ -1,1 +1,19 @@
 ﻿
+.TopMenuBar_Override{
+    background-color: #3a1148;
+    border-color: #3a1148;
+}
+
+.PreierLegaueIcon{
+    position: absolute;
+    height: 51px;
+    width: 50px;
+    float: left;
+    background-image: url("../images/premier_league_icon.png")
+}
+
+.Container_Override{
+    position: absolute;
+    margin-left: 50px;
+    float: right;
+}

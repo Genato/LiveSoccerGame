@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - LiveSoccerGame</title>
@@ -8,6 +9,7 @@
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/Custom.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
@@ -16,10 +18,16 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
     @Html.ApplicationInsightsJavaScript(TelemetryConfiguration)
+
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+
+    @* Top menu - Start code *@
+    <div class="navbar navbar-inverse navbar-fixed-top TopMenuBar_Override">
+        <div class="PreierLegaueIcon">
+        </div>
+        <div class="container Container_Override">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -38,6 +46,9 @@
             </div>
         </div>
     </div>
+    @* Top menu - End code *@
+
+    @* In this section View Pages are Rendered - Start code *@
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -45,7 +56,9 @@
             <p>&copy; 2017 - LiveSoccerGame</p>
         </footer>
     </div>
+    @* Rendered View Pages - End code *@
 
+    @* SCRIPTS *@
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
