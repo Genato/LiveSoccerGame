@@ -1,5 +1,5 @@
 ﻿/*PreierLegaueIcon effects*/
-$('#PreierLegaueIcon').hover(makeBigger, returnToOriginalSize);
+$('.PreierLegaueIcon').hover(makeBigger, returnToOriginalSize);
 
 function makeBigger() {
     $(this).css({ "width": '+=4px' });
