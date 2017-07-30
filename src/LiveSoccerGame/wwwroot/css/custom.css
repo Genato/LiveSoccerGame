@@ -9,11 +9,15 @@
     height: 51px;
     width: 50px;
     float: left;
-    background-image: url("../images/premier_league_icon.png")
+    background-image: url("../images/premier_league_icon.png");
 }
 
 .Container_Override{
     position: absolute;
     margin-left: 50px;
     float: right;
+}
+
+.CollapseOverride{
+    background-color: #3a1148;
 }
