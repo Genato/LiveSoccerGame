@@ -1,4 +1,11 @@
-﻿
+﻿html{
+    min-height: 100%;
+}
+
+body{
+    background: linear-gradient(to bottom, #00cc66,  #66ffcc );
+}
+
 .TopMenuBar_Override{
     background-color: #3a1148;
     border-color: #3a1148;
@@ -21,3 +28,4 @@
 .CollapseOverride{
     background-color: #3a1148;
 }
+
