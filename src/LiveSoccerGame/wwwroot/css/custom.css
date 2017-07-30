@@ -6,6 +6,21 @@ body{
     background: linear-gradient(to bottom, #00cc66,  #66ffcc );
 }
 
+footer{
+    position: absolute;
+    bottom: 0px;
+    left: 5px;
+    float: left;
+}
+
+hr{
+    color: rgb(0, 0, 0);
+    border-style: solid;
+    margin-bottom: 10px;
+    font-size: 5px;
+    border-width: 1px;
+}
+
 .TopMenuBar_Override{
     background-color: #3a1148;
     border-color: #3a1148;
@@ -29,3 +44,18 @@ body{
     background-color: #3a1148;
 }
 
+.PlayGround{
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1000;
+    float: left;
+    width:100%;
+    min-height: 100%;
+}
+
+.test{
+    width: 100%;
+}

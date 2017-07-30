@@ -3,12 +3,12 @@ $('.PreierLegaueIcon').hover(makeBigger, returnToOriginalSize);
 
 function makeBigger() {
     $(this).css({ "width": '+=4px' });
-    $('.Container_Override').css({ "text-shadow": "1px 1px white", "margin-left": "+=30px" });
+    $('.Container_Override').css({ "text-shadow": "1px 1px white", "margin-left": "+=5px" });
 }
 
 function returnToOriginalSize() {
     $(this).css({ width: "" });
-    $('.Container_Override').css({ "text-shadow": "", "margin-left": "-=30px" });
+    $('.Container_Override').css({ "text-shadow": "", "margin-left": "-=5px" });
 }
 /*PreierLegaueIcon effects*/
 

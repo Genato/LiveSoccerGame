@@ -25,8 +25,10 @@
 
     @* Top menu - Start code *@
     <div class="navbar navbar-inverse navbar-fixed-top TopMenuBar_Override">
-        <div class="PreierLegaueIcon">
-        </div>
+        <a asp-area="" asp-controller="Home" asp-action="PlayGround">
+            <div class="PreierLegaueIcon">
+            </div>
+        </a>
         <div class="container Container_Override">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -51,8 +53,8 @@
     @* In this section View Pages are Rendered - Start code *@
     <div class="container body-content">
         @RenderBody()
-        <hr />
         <footer>
+            <hr />
             <p>&copy; 2017 - LiveSoccerGame</p>
         </footer>
     </div>

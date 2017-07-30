@@ -31,5 +31,10 @@ namespace LiveSoccerGame.Controllers
         {
             return View();
         }
+
+        public IActionResult PlayGround()
+        {
+            return View();
+        }
     }
 }
