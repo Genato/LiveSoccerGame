@@ -7,10 +7,11 @@ body{
 }
 
 footer{
-    position: absolute;
-    bottom: 0px;
-    left: 5px;
+    margin-top: 5%;
+    margin-left: 1%;
     float: left;
+    width: 98%;
+    bottom: 0px;
 }
 
 hr{
@@ -28,7 +29,7 @@ hr{
 
 .PreierLegaueIcon{
     position: absolute;
-    height: 51px;
+    height: 50px;
     width: 50px;
     float: left;
     background-image: url("../images/premier_league_icon.png");
@@ -45,13 +46,19 @@ hr{
 }
 
 .PlayGround{
-    position: absolute;
-    top: 50px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1000;
     float: left;
     width:100%;
-    min-height: 100%;
+    margin: 0, 50%, 0, 50%;
+    padding-top: 5%;
+}
+
+@media screen and (min-height: 1000px) {
+    footer{
+    margin-top: 5%;
+    margin-left: 1%;
+    position: absolute;
+    width: 98%;
+    bottom: 0px;
+}
+
 }
