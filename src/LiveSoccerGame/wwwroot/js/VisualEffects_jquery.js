@@ -23,3 +23,22 @@ function TextEffectsUnHover() {
     $(this).css({ "text-shadow": "", "font-size": "" });
 }
 /*Top menu bar text effects*/
+
+// Ball image on load 
+$("#_Container").ready(function () {
+    var _ContainerPosition = $("#_Container").offset();
+    var _ContainerHeight = $("#_Container").height();
+    var _ContainerWidth = $("#_Container").width();
+    var ballTopPosition = (_ContainerHeight / 2) + _ContainerPosition.top;
+    var ballLeftPosition = (_ContainerWidth / 2) + _ContainerPosition.left;
+    $(".Ball").css({ "left": +ballLeftPosition, "top": +ballTopPosition });
+});
+
+$(window).resize(function () {
+    var _ContainerPosition = $("#_Container").offset();
+    var _ContainerHeight = $("#_Container").height();
+    var _ContainerWidth = $("#_Container").width();
+    var ballTopPosition = (_ContainerHeight / 2) + _ContainerPosition.top;
+    var ballLeftPosition = (_ContainerWidth / 2) + _ContainerPosition.left;
+    $(".Ball").css({ "left": +ballLeftPosition, "top": +ballTopPosition });
+});

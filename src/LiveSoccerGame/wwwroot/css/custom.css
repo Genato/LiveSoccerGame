@@ -52,13 +52,32 @@ hr{
     padding-top: 5%;
 }
 
-@media screen and (min-height: 1000px) {
-    footer{
-    margin-top: 5%;
-    margin-left: 1%;
-    position: absolute;
-    width: 98%;
-    bottom: 0px;
+@media screen and (max-width: 960px) {
+    .Ball {
+        height: 25px;
+        width: 24px;
+    }
 }
 
+@media screen and (max-width: 480px) {
+    .Ball {
+        height: 15px;
+        width: 14px;
+    }
+}
+
+@media screen and (min-height: 1000px) {
+    footer{
+        margin-top: 5%;
+        margin-left: 1%;
+        position: absolute;
+        width: 98%;
+        bottom: 0px;
+    }
+}
+
+.Ball{
+    z-index: 1000;
+    position: fixed;
+    border-radius: 30px;
 }
