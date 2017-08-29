@@ -1,13 +1,13 @@
 ﻿/*PreierLegaueIcon effects*/
-$('.PreierLegaueIcon').hover(makeBigger, returnToOriginalSize);
+$('.PreierLegaueIcon').hover(MakeBigger, ReturnToOriginalSize);
 
-function makeBigger()
+function MakeBigger()
 {
     $(this).css({ "width": '+=4px' });
     $('.Container_Override').css({ "text-shadow": "1px 1px white", "margin-left": "+=5px" });
 }
 
-function returnToOriginalSize()
+function ReturnToOriginalSize()
 {
     $(this).css({ width: "" });
     $('.Container_Override').css({ "text-shadow": "", "margin-left": "-=5px" });
@@ -46,4 +46,64 @@ function MoveBall()
     var ballLeftPosition = (_ContainerWidth / 2) + _ContainerPosition.left;
     $(".Ball").css({ "left": +ballLeftPosition, "top": +ballTopPosition });
 }
-// Ball image on load - Start
+// Ball image on load - End
+
+// Moving Ball - Start
+$(".Ball").click(function () {
+
+    var ballCenterCordinate = GetBallCenterCordinate();
+
+    animateDiv();
+
+    //Move();
+});
+
+function Move()
+{
+    $(".Ball").animate({ left: 800, top: 200 },
+        {
+            duration: 2000,
+            complete: function () {
+                $(".Ball").animate({ left: 2000 }, {
+                    duration: 5000,
+                    complete: function () {
+                        move();
+                    }
+                });
+            }
+        }
+    );
+}
+
+function GetBallCenterCordinate()
+{
+    var ballLeftTop = $(".Ball").offset();
+    var ballHeight = $("#BallImage").height();
+    var ballWidth = $("#BallImage").width();
+    var ballCenter = { left: (ballLeftTop.left + (ballWidth / 2)), top: (ballLeftTop.top + (ballHeight / 2)) };
+
+    return ballCenter;
+}
+
+
+function animateDiv() {
+    var newq = makeNewPosition();
+    $('.Ball').animate({ top: newq[0], left: newq[1] }, function () {
+        animateDiv();
+    });
+
+};
+
+function makeNewPosition() {
+
+    // Get viewport dimensions (remove the dimension of the div)
+    var h = $(".PlayGroundImage").height() - 50;
+    var w = $(".PlayGroundImage").width() - 50;
+
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);
+
+    return [nh, nw];
+
+}
+// Moving Ball - End
