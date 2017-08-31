@@ -59,11 +59,6 @@ hr{
 }
 
 
-
-
-
-
-
 @media screen and (max-height: 960px) {
     .PlayGroundImage {
         height: 720px;
@@ -95,6 +90,16 @@ hr{
         width: 14px;
     }
 }
+@media screen and (max-height: 240px) {
+    .PlayGroundImage {
+        height: 140px;
+    }
+
+    .Ball {
+        height: 10px;
+        width: 9px;
+    }
+}
 
 
 
@@ -109,22 +114,48 @@ hr{
 }
 
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1080px) {
     .Ball {
         height: 25px;
         width: 24px;
     }
+
+    .PlayGroundImage {
+        height: 720px;
+    }
+
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 960px) {
     .Ball {
         height: 20px;
         width: 19px;
     }
+
+    .PlayGroundImage {
+        height: 480px;
+    }
+
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 720px) {
     .Ball {
         height: 15px;
         width: 14px;
     }
+
+    .PlayGroundImage {
+        height: 240px;
+    }
+
+}
+@media screen and (max-width: 480px) {
+    .Ball {
+        height: 10px;
+        width: 9px;
+    }
+
+    .PlayGroundImage {
+        height: 240px;
+    }
+
 }
 
