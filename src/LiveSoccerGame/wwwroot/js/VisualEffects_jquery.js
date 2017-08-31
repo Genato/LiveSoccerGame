@@ -30,20 +30,20 @@ function TextEffectsUnHover()
 
 // Ball image on load - Start
 $("#_Container").ready(function () {
-    MoveBall();
+    PositionBallOnCenterOfPlayground();
 });
 
 $(window).resize(function () {
-    MoveBall();
+    PositionBallOnCenterOfPlayground();
 });
 
-function MoveBall()
+function PositionBallOnCenterOfPlayground()
 {
-    var _ContainerPosition = $("#_Container").offset();
-    var _ContainerHeight = $("#_Container").height();
-    var _ContainerWidth = $("#_Container").width();
-    var ballTopPosition = (_ContainerHeight / 2) + _ContainerPosition.top;
-    var ballLeftPosition = (_ContainerWidth / 2) + _ContainerPosition.left;
+    var _ContainerPosition = $(".PlayGroundImage").offset();
+    var _ContainerHeight = $(".PlayGroundImage").height();
+    var _ContainerWidth = $(".PlayGroundImage").width();
+    var ballTopPosition = ((_ContainerHeight / 2) + _ContainerPosition.top) - ($("#BallImage").height() / 2);
+    var ballLeftPosition = ((_ContainerWidth / 2) + _ContainerPosition.left) - ($("#BallImage").width() / 2);
     $(".Ball").css({ "left": +ballLeftPosition, "top": +ballTopPosition });
 }
 // Ball image on load - End
@@ -62,12 +62,12 @@ function GetDirection(mouseClick)
     var vectorDirection = { x: (ballCenterCordinate.x - mouseClickCordinates.x), y: (ballCenterCordinate.y - mouseClickCordinates.y) };
     var playGroundBorder = $(".PlayGroundImage").offset();
     var directionPath = {
-        x: [ballCenterCordinate.x + vectorDirection.x, ballCenterCordinate.x + vectorDirection.x],
-        y: [ballCenterCordinate.y + vectorDirection.y, ballCenterCordinate.y + vectorDirection.y]
+        x: [$(".Ball").offset().x],
+        y: [$(".Ball").offset().y]
     }
 
-    for (var directionCoefficient = 1, i = 0; directionPath.x[i] >= playGroundBorder.left && directionPath.y[i] >= playGroundBorder.top ; directionCoefficient += 1, ++i) {
-
+    for (var directionCoefficient = 1, i = 0; IsBallInsidePlayground(directionPath, playGroundBorder, i); directionCoefficient += 1, ++i) {
+        
         directionPath.x.push(ballCenterCordinate.x + vectorDirection.x * directionCoefficient);
         directionPath.y.push(ballCenterCordinate.y + vectorDirection.y * directionCoefficient);
     }
@@ -78,22 +78,7 @@ function GetDirection(mouseClick)
 function Move(direction)
 {
     var length = Object.keys(direction.x).length;
-
-    $(".Ball").animate({ left: direction.x[length-1], top: direction.y[length-1] }, { duration: 5000 });
-
-    //$(".Ball").animate({ left: direction.x[i], top: direction.y[i] },
-    //    {
-    //        duration: 2000,
-    //        complete: function () {
-    //            $(".Ball").animate({ left: 2000 }, {
-    //                duration: 5000,
-    //                complete: function () {
-    //                    move();
-    //                }
-    //            });
-    //        }
-    //    }
-    //);
+    $(".Ball").animate({ left: direction.x[length-1], top: direction.y[length-1] }, { duration: 1000 });
 }
 
 function GetBallCenterCordinate()
@@ -106,33 +91,22 @@ function GetBallCenterCordinate()
     return ballCenter;
 }
 
+function IsBallInsidePlayground(directionPath, playGroundBorder, i)
+{
+    if (directionPath.x[i] <= playGroundBorder.left)
+        return false;
+    else if (directionPath.y[i] <= playGroundBorder.top)
+        return false;
+    else if (directionPath.x[i] >= ($(".PlayGroundImage").width() + playGroundBorder.left))
+        return false;
+    else if (directionPath.y[i] >= ($(".PlayGroundImage").height() + playGroundBorder.top))
+        return false;
 
-///
-///Random moving
-///
-function animateDiv() {
-    var newq = makeNewPosition();
-    $('.Ball').animate({ top: newq[0], left: newq[1] }, function () {
-        animateDiv();
-    });
-
-};
-
-function makeNewPosition() {
-
-    // Get viewport dimensions (remove the dimension of the div)
-    var h = $(".PlayGroundImage").height() - 50;
-    var w = $(".PlayGroundImage").width() - 50;
-
-    var nh = Math.floor(Math.random() * h);
-    var nw = Math.floor(Math.random() * w);
-
-    return [nh, nw];
-
+    return true;
 }
-///
-///
-///
 
 
 // Moving Ball - End
+
+
+
