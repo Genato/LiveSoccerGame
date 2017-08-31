@@ -49,30 +49,51 @@ function MoveBall()
 // Ball image on load - End
 
 // Moving Ball - Start
-$(".Ball").click(function () {
+$(".Ball").click(function (mouseClick) {
 
-    var ballCenterCordinate = GetBallCenterCordinate();
-
-    animateDiv();
-
-    //Move();
+    var direction = GetDirection(mouseClick);
+    Move(direction);
 });
 
-function Move()
+function GetDirection(mouseClick)
 {
-    $(".Ball").animate({ left: 800, top: 200 },
-        {
-            duration: 2000,
-            complete: function () {
-                $(".Ball").animate({ left: 2000 }, {
-                    duration: 5000,
-                    complete: function () {
-                        move();
-                    }
-                });
-            }
-        }
-    );
+    var mouseClickCordinates = { x: mouseClick.pageX, y: mouseClick.pageY };
+    var ballCenterCordinate = GetBallCenterCordinate();
+    var vectorDirection = { x: (ballCenterCordinate.x - mouseClickCordinates.x), y: (ballCenterCordinate.y - mouseClickCordinates.y) };
+    var playGroundBorder = $(".PlayGroundImage").offset();
+    var directionPath = {
+        x: [ballCenterCordinate.x + vectorDirection.x, ballCenterCordinate.x + vectorDirection.x],
+        y: [ballCenterCordinate.y + vectorDirection.y, ballCenterCordinate.y + vectorDirection.y]
+    }
+
+    for (var directionCoefficient = 1, i = 0; directionPath.x[i] >= playGroundBorder.left && directionPath.y[i] >= playGroundBorder.top ; directionCoefficient += 1, ++i) {
+
+        directionPath.x.push(ballCenterCordinate.x + vectorDirection.x * directionCoefficient);
+        directionPath.y.push(ballCenterCordinate.y + vectorDirection.y * directionCoefficient);
+    }
+
+    return directionPath;
+}
+
+function Move(direction)
+{
+    var length = Object.keys(direction.x).length;
+
+    $(".Ball").animate({ left: direction.x[length-1], top: direction.y[length-1] }, { duration: 5000 });
+
+    //$(".Ball").animate({ left: direction.x[i], top: direction.y[i] },
+    //    {
+    //        duration: 2000,
+    //        complete: function () {
+    //            $(".Ball").animate({ left: 2000 }, {
+    //                duration: 5000,
+    //                complete: function () {
+    //                    move();
+    //                }
+    //            });
+    //        }
+    //    }
+    //);
 }
 
 function GetBallCenterCordinate()
@@ -80,12 +101,15 @@ function GetBallCenterCordinate()
     var ballLeftTop = $(".Ball").offset();
     var ballHeight = $("#BallImage").height();
     var ballWidth = $("#BallImage").width();
-    var ballCenter = { left: (ballLeftTop.left + (ballWidth / 2)), top: (ballLeftTop.top + (ballHeight / 2)) };
+    var ballCenter = { x: (ballLeftTop.left + (ballWidth / 2)), y: (ballLeftTop.top + (ballHeight / 2)) };
 
     return ballCenter;
 }
 
 
+///
+///Random moving
+///
 function animateDiv() {
     var newq = makeNewPosition();
     $('.Ball').animate({ top: newq[0], left: newq[1] }, function () {
@@ -106,4 +130,9 @@ function makeNewPosition() {
     return [nh, nw];
 
 }
+///
+///
+///
+
+
 // Moving Ball - End

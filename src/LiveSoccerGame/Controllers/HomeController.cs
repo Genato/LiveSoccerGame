@@ -6,8 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LiveSoccerGame.Controllers
 {
+    /// <summary>
+    /// HELLO FROM CONTROLLER
+    /// </summary>
     public class HomeController : Controller
     {
+        /// <summary>
+        /// HELLO FROM CONTROLLER FUNCTION
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
