@@ -12,6 +12,8 @@ footer{
     float: left;
     width: 98%;
     bottom: 0px;
+
+    position: fixed;
 }
 
 hr{
@@ -50,6 +52,8 @@ hr{
     width:100%;
     margin: 0, 50%, 0, 50%;
     padding-top: 5%;
+
+    position: fixed;
 }
 
 .Ball{
@@ -58,7 +62,7 @@ hr{
     border-radius: 30px;
 }
 
-
+/*Resizing playground on resize display - height*/
 @media screen and (max-height: 960px) {
     .PlayGroundImage {
         height: 720px;
@@ -70,9 +74,9 @@ hr{
     }
 
 }
-@media screen and (max-height: 720px) {
+@media screen and (max-height: 880px) {
     .PlayGroundImage {
-        height: 480px;
+        height: 600px;
     }
 
     .Ball {
@@ -80,9 +84,9 @@ hr{
         width: 19px;
     }
 }
-@media screen and (max-height: 480px) {
+@media screen and (max-height: 750px) {
     .PlayGroundImage {
-        height: 240px;
+        height: 400px;
     }
 
     .Ball {
@@ -90,9 +94,9 @@ hr{
         width: 14px;
     }
 }
-@media screen and (max-height: 240px) {
+@media screen and (max-height: 550px) {
     .PlayGroundImage {
-        height: 140px;
+        height: 300px;
     }
 
     .Ball {
@@ -100,6 +104,28 @@ hr{
         width: 9px;
     }
 }
+@media screen and (max-height: 450px) {
+    .PlayGroundImage {
+        height: 200px;
+    }
+
+    .Ball {
+        height: 10px;
+        width: 9px;
+    }
+}
+@media screen and (max-height: 350px) {
+    .PlayGroundImage {
+        height: 100px;
+    }
+
+    .Ball {
+        height: 10px;
+        width: 9px;
+    }
+}
+/*Resizing playground on resize display - height*/
+
 
 
 
@@ -114,48 +140,71 @@ hr{
 }
 
 
-@media screen and (max-width: 1080px) {
+/*Resizing playground on resize display - width*/
+@media screen and (max-width: 1200px) {
     .Ball {
         height: 25px;
         width: 24px;
     }
 
     .PlayGroundImage {
-        height: 720px;
+        height: 650px;
     }
 
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1150px) {
     .Ball {
-        height: 20px;
-        width: 19px;
+        height: 25px;
+        width: 24px;
     }
 
     .PlayGroundImage {
-        height: 480px;
+        height: 600px;
     }
 
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1050px) {
     .Ball {
-        height: 15px;
-        width: 14px;
+        height: 25px;
+        width: 24px;
     }
 
     .PlayGroundImage {
-        height: 240px;
+        height: 500px;
     }
 
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1000px) {
     .Ball {
-        height: 10px;
-        width: 9px;
+        height: 25px;
+        width: 24px;
     }
 
     .PlayGroundImage {
-        height: 240px;
+        height: 450px;
     }
 
 }
+@media screen and (max-width: 780px) {
+    .Ball {
+        height: 25px;
+        width: 24px;
+    }
 
+    .PlayGroundImage {
+        height: 300px;
+    }
+
+}
+@media screen and (max-width: 500px) {
+    .Ball {
+        height: 25px;
+        width: 24px;
+    }
+
+    .PlayGroundImage {
+        height: 180px;
+    }
+
+}
+/*Resizing playground on resize display - width*/
