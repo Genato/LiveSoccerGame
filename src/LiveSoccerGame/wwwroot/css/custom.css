@@ -12,8 +12,7 @@ footer{
     float: left;
     width: 98%;
     bottom: 0px;
-
-    position: fixed;
+    position: absolute;
 }
 
 hr{
@@ -47,12 +46,19 @@ hr{
     background-color: #3a1148;
 }
 
+.PlayGroundImage{
+    width: 80%;
+    height: 80%;
+    margin: 50%, 50%, 50%, 50%;
+    position: absolute;
+}
+
 .PlayGround{
     float: left;
-    width:100%;
-    margin: 0, 50%, 0, 50%;
+    width: 100%;
+    height: 100%;
+    margin: 50%, 50%, 50%, 50%;
     padding-top: 5%;
-
     position: fixed;
 }
 
@@ -62,149 +68,40 @@ hr{
     border-radius: 30px;
 }
 
-/*Resizing playground on resize display - height*/
-@media screen and (max-height: 960px) {
-    .PlayGroundImage {
-        height: 720px;
-    }
-
-    .Ball {
-        height: 25px;
-        width: 24px;
-    }
-
-}
-@media screen and (max-height: 880px) {
-    .PlayGroundImage {
-        height: 600px;
-    }
-
-    .Ball {
-        height: 20px;
-        width: 19px;
-    }
-}
-@media screen and (max-height: 750px) {
-    .PlayGroundImage {
-        height: 400px;
-    }
-
-    .Ball {
-        height: 15px;
-        width: 14px;
-    }
-}
-@media screen and (max-height: 550px) {
-    .PlayGroundImage {
-        height: 300px;
-    }
-
-    .Ball {
-        height: 10px;
-        width: 9px;
-    }
-}
-@media screen and (max-height: 450px) {
-    .PlayGroundImage {
-        height: 200px;
-    }
-
-    .Ball {
-        height: 10px;
-        width: 9px;
-    }
-}
-@media screen and (max-height: 350px) {
-    .PlayGroundImage {
-        height: 100px;
-    }
-
-    .Ball {
-        height: 10px;
-        width: 9px;
-    }
-}
-/*Resizing playground on resize display - height*/
-
-
-
-
-@media screen and (min-height: 1000px) {
-    footer{
-        margin-top: 5%;
-        margin-left: 1%;
-        position: absolute;
-        width: 98%;
-        bottom: 0px;
-    }
+.ButtonNewGame{
+    height: 100%;
+    top: 10%;
+    position: absolute;
 }
 
-
-/*Resizing playground on resize display - width*/
-@media screen and (max-width: 1200px) {
-    .Ball {
-        height: 25px;
-        width: 24px;
-    }
-
-    .PlayGroundImage {
-        height: 650px;
-    }
-
+.ButtonNextPlayer{
+    height: 100%;
+    top: 10%;
+    right: 0.1px;
+    position: absolute;
 }
-@media screen and (max-width: 1150px) {
-    .Ball {
-        height: 25px;
-        width: 24px;
-    }
 
-    .PlayGroundImage {
-        height: 600px;
-    }
-
+.Score{
+    font-size: 16px;
+    left: 44%;
+    position: absolute;
 }
-@media screen and (max-width: 1050px) {
-    .Ball {
-        height: 25px;
-        width: 24px;
-    }
 
-    .PlayGroundImage {
-        height: 500px;
-    }
-
+.GameThings{
+    position: absolute;
+    height: 5%;
+    width: 80%;
 }
-@media screen and (max-width: 1000px) {
-    .Ball {
-        height: 25px;
-        width: 24px;
-    }
 
-    .PlayGroundImage {
-        height: 450px;
-    }
-
+.Left{
+    top: 50%;
+    left: 40%;
+    position: absolute;
 }
-@media screen and (max-width: 780px) {
-    .Ball {
-        height: 25px;
-        width: 24px;
-    }
 
-    .PlayGroundImage {
-        height: 300px;
-    }
-
+.Right{
+    top: 50%;
+    right: 39%;
+    position: absolute;
 }
-@media screen and (max-width: 500px) {
-    .Ball {
-        height: 25px;
-        width: 24px;
-    }
 
-    .PlayGroundImage {
-        height: 180px;
-    }
-
-}
-/*Resizing playground on resize display - width*/

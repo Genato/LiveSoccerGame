@@ -28,12 +28,17 @@ function TextEffectsUnHover()
 }
 /*Top menu bar text effects*/
 
-// Ball image on load - Start
-$("#_Container").ready(function () {
+//On window resizing - resize playground
+$(window).resize(function ()
+{
     PositionBallOnCenterOfPlayground();
 });
+//
 
-$(window).resize(function () {
+// Ball image on load - Start
+$("#_Container").ready(function ()
+{
+    $(".badge").text('2');
     PositionBallOnCenterOfPlayground();
 });
 
@@ -104,8 +109,6 @@ function IsBallInsidePlayground(directionPath, playGroundBorder, i)
 
     return true;
 }
-
-
 // Moving Ball - End
 
 

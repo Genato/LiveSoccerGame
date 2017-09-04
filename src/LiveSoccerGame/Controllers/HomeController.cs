@@ -39,6 +39,7 @@ namespace LiveSoccerGame.Controllers
 
         public IActionResult PlayGround()
         {
+            ViewBag.CurrentView = "PlayGround";
             return View();
         }
     }

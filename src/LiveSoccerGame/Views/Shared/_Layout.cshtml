@@ -56,10 +56,14 @@
     </div>
     @* Rendered View Pages - End code *@
 
-    <footer>
-        <hr />
-        <p>&copy; 2017 - LiveSoccerGame</p>
-    </footer>
+    @if (@ViewBag.CurrentView != "PlayGround")
+    {
+        <footer>
+            <hr />
+            <p>&copy; 2017 - LiveSoccerGame</p>
+        </footer>
+    }
+
 
     @* SCRIPTS *@
     <environment names="Development">
