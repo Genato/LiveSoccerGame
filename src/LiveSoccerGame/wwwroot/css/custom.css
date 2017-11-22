@@ -96,15 +96,20 @@ hr{
     width: 80%;
 }
 
-.Left{
+.player1{
     top: 50%;
     left: 40%;
     position: absolute;
+    border-radius: 4px;
 }
 
-.Right{
+.player2{
     top: 50%;
     right: 39%;
     position: absolute;
+    border-radius: 4px;
 }
 
+.badge{
+    background-color: #15ade6;
+}

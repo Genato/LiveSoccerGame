@@ -16,6 +16,14 @@ $(window).resize(function () {
 function newGame() {
     $("#player1").text('0');
     $("#player2").text('0');
+    $("#player1ID_DIV").css({ "background-color": "" });
+    PositionBallOnCenterOfPlayground();
+}
+//
+
+//Next game
+function nextPlayer() {
+    $("#player1ID_DIV").css({ "background-color": "" });
     PositionBallOnCenterOfPlayground();
 }
 //
@@ -80,7 +88,53 @@ function IsBallInsidePlayground(directionPath, playGroundBorder, i) {
 }
 
 function Move(direction) {
+    var ballCenterPosition = GetBallCenterCordinate();
     var length = Object.keys(direction.x).length;
-    $(".Ball").animate({ left: direction.x[length - 1], top: direction.y[length - 1] }, { duration: 1000 });
+    $(".Ball").animate({ left: direction.x[length - 1], top: direction.y[length - 1] }, 1000, "linear", function () { checkIsItGoal(); });
+    $.stopSound();
+}
+
+function checkIsItGoal() {
+
+    var ballCenterPosition = GetBallCenterCordinate();
+    var playGroundBorder = $(".PlayGroundImage").offset();
+    var playGroundWidth = $(".PlayGroundImage").width();
+    var playGroundHeight = $(".PlayGroundImage").height();
+
+    var distanceBetweenGoalAndTopBottomBorder = (44.8 * playGroundHeight) / 100;
+    var distanceFromGoalToCloserBorder = (0.9 * playGroundWidth) / 100;
+    var distanceFromGoalToFurtherBorder = (96.6 * playGroundWidth) / 100;
+    var player1Score = parseInt($("#player1").text());
+
+    if (ballCenterPosition.y > (playGroundBorder.top + distanceBetweenGoalAndTopBottomBorder) &&
+        ballCenterPosition.y < ((playGroundBorder.top + playGroundHeight) - distanceBetweenGoalAndTopBottomBorder) &&
+        ballCenterPosition.x > (playGroundBorder.left + distanceFromGoalToCloserBorder) &&
+        ballCenterPosition.x < (playGroundBorder.left + playGroundWidth) - distanceFromGoalToFurtherBorder
+        )
+    {
+        $("#player1").text(player1Score + 1);
+        $("#player1ID_DIV").css({ "background-color": "#646efc" });
+
+        $.playSound('../sounds/GoalSound.mp3')
+    }
+
 }
 //
+
+
+
+(function ($) {
+    $.extend({
+        playSound: function () {
+            return $(
+                   '<audio class="sound-player" autoplay="autoplay" style="display:none;">'
+                     + '<source src="' + arguments[0] + '" />'
+                     + '<embed src="' + arguments[0] + '" hidden="true" autostart="true" loop="false"/>'
+                   + '</audio>'
+                 ).appendTo('body');
+        },
+        stopSound: function () {
+            $(".sound-player").remove();
+        }
+    });
+})(jQuery);
