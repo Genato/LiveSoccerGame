@@ -113,3 +113,9 @@ hr{
 .badge{
     background-color: #15ade6;
 }
+
+.activePlayer{
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+}

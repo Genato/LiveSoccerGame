@@ -17,6 +17,7 @@ function newGame() {
     $("#player1").text('0');
     $("#player2").text('0');
     $("#player1ID_DIV").css({ "background-color": "" });
+    $("#activePlayer").text('Player1');
     PositionBallOnCenterOfPlayground();
 }
 //
@@ -25,6 +26,13 @@ function newGame() {
 function nextPlayer() {
     $("#player1ID_DIV").css({ "background-color": "" });
     PositionBallOnCenterOfPlayground();
+
+    var nextPlayer = $("#activePlayer").text();
+
+    if(nextPlayer == 'Player1')
+        $("#activePlayer").text('Player2');
+    else
+        $("#activePlayer").text('Player1');
 }
 //
 
@@ -104,7 +112,10 @@ function checkIsItGoal() {
     var distanceBetweenGoalAndTopBottomBorder = (44.8 * playGroundHeight) / 100;
     var distanceFromGoalToCloserBorder = (0.9 * playGroundWidth) / 100;
     var distanceFromGoalToFurtherBorder = (96.6 * playGroundWidth) / 100;
+
     var player1Score = parseInt($("#player1").text());
+    var player2Score = parseInt($("#player2").text());
+    var activePlayer = $("#activePlayer").text();
 
     if (ballCenterPosition.y > (playGroundBorder.top + distanceBetweenGoalAndTopBottomBorder) &&
         ballCenterPosition.y < ((playGroundBorder.top + playGroundHeight) - distanceBetweenGoalAndTopBottomBorder) &&
@@ -112,8 +123,23 @@ function checkIsItGoal() {
         ballCenterPosition.x < (playGroundBorder.left + playGroundWidth) - distanceFromGoalToFurtherBorder
         )
     {
-        $("#player1").text(player1Score + 1);
-        $("#player1ID_DIV").css({ "background-color": "#646efc" });
+        if (activePlayer == 'Player1')
+            $("#player1").text(player1Score + 1);
+        else if (activePlayer == 'Player2')
+            $("#player2").text(player2Score - 1);
+
+        $.playSound('../sounds/GoalSound.mp3')
+    }
+    else if(ballCenterPosition.y > (playGroundBorder.top + distanceBetweenGoalAndTopBottomBorder) &&
+            ballCenterPosition.y < ((playGroundBorder.top + playGroundHeight) - distanceBetweenGoalAndTopBottomBorder) &&
+            ballCenterPosition.x < ((playGroundBorder.left + playGroundWidth) - distanceFromGoalToCloserBorder) &&
+            ballCenterPosition.x > (playGroundBorder.left + playGroundWidth) - distanceFromGoalToFurtherBorder
+           )
+    {
+        if (activePlayer == 'Player1')
+            $("#player1").text(player1Score - 1);
+        else if (activePlayer == 'Player2')
+            $("#player2").text(player2Score + 1);
 
         $.playSound('../sounds/GoalSound.mp3')
     }
