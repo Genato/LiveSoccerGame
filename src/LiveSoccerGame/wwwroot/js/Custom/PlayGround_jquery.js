@@ -122,7 +122,15 @@ function checkIsItGoal() {
 //
 
 
-
+//Stream sound - THANKS TO ORIGINAL OWNER (Alexander Manzyuk)
+/**
+ * @author Alexander Manzyuk <admsev@gmail.com>
+ * Copyright (c) 2012 Alexander Manzyuk - released under MIT License
+ * $.playSound('http://example.org/sound.wav')
+ * $.playSound('/attachments/sounds/1234.wav')
+ * $.playSound('/attachments/sounds/1234.mp3')
+ * $.stopSound();
+**/
 (function ($) {
     $.extend({
         playSound: function () {
@@ -138,3 +146,4 @@ function checkIsItGoal() {
         }
     });
 })(jQuery);
+//
