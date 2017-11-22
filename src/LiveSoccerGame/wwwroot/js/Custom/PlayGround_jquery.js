@@ -65,14 +65,15 @@ function GetBallCenterCordinate() {
 
 function IsBallInsidePlayground(directionPath, playGroundBorder, i) {
 
+    var ballSize = $("#BallImage").height() + 5;
 
-    if (directionPath.x[i] <= playGroundBorder.left)
+    if ((directionPath.x[i] - 5) <= playGroundBorder.left)
         return false;
     else if (directionPath.y[i] <= playGroundBorder.top)
         return false;
-    else if ((directionPath.x[i] + 40) >= ($(".PlayGroundImage").width() + playGroundBorder.left))
+    else if ((directionPath.x[i] + ballSize) >= ($(".PlayGroundImage").width() + playGroundBorder.left))
         return false;
-    else if ((directionPath.y[i] + 40) >= ($(".PlayGroundImage").height() + playGroundBorder.top))
+    else if ((directionPath.y[i] + ballSize) >= ($(".PlayGroundImage").height() + playGroundBorder.top))
         return false;
 
     return true;
