@@ -63,6 +63,9 @@ hr{
 }
 
 .Ball{
+    width: 2%;
+    height: 3%;
+
     z-index: 1000;
     position: fixed;
     border-radius: 30px;

@@ -6,18 +6,18 @@
 
 <div class="GameThings">
     <div class="Left">
-        <b>Left </b> <span class="badge">1</span>
+        <b>Player1 </b> <span id="player1" class="badge">0</span>
     </div>
     <div class="Right">
-        <span class="badge">1</span> <b> Right</b>
+        <span id="player2" class="badge">0</span> <b> Player2</b>
     </div>
 
     <div class="ButtonNewGame">
-        <button type="button" class="btn btn-primary">New Game</button>
+        <button type="button" class="btn btn-primary" onclick="newGame()">New Game</button>
     </div>
 
     <div class="ButtonNextPlayer">
-        <button type="button" class="btn btn-success">Next player</button>
+        <button type="button" class="btn btn-success" onclick="PositionBallOnCenterOfPlayground()">Next player</button>
     </div>
 </div>
 
